@@ -1,0 +1,253 @@
+/a:<addin>[,<options>]            Addin
+/action-script:<file-name>        Action script
+/admin                            Admin (or console) session
++aero                             Enable desktop composition
+/app:program:[<path>|<||alias>],cmd:<command>,file:<filename>,guid:<guid>
+      icon:<filename>,name:<name>,workdir:<directory>
+                                  Remote application program
+/assistance:<password>            Remote assistance password
+/auto-request-control             Automatically request remote assistance
+                                  input control
++async-channels                   Enable Asynchronous channels
+                                  (experimental)
++async-update                     Enable Asynchronous update
+/audio-mode:<mode>                Audio output mode
++auth-only                        Enable Authenticate only
+/auth-pkg-list:<!ntlm,kerberos>   Authentication package filter
+                                  (comma-separated list, use '!' to exclude)
+-authentication                   Disable Authentication (experimental)
++auto-reconnect                   Enable Automatic reconnection
+/auto-reconnect-max-retries:<retries>
+                                  Automatic reconnection maximum retries, 0
+                                  for unlimited [0,1000]
+/bpp:<depth>                      Session bpp (color depth)
+/buildconfig                      Print the build configuration
+/cache:[bitmap[:on|off],codec[:rfx|nsc],glyph[:on|off],offscreen[:on|off]
+        persist,persist-file:<filename>]
+                                  
+/cert:[deny,ignore,name:<name>,tofu,fingerprint:<hash>:<hash as hex>[
+       fingerprint:<hash>:<another hash>]]
+                                  Certificate accept options. Use with care!
+                                  * deny         ... Automatically abort
+                                  connection if the certificate does not
+                                  match, no user interaction.           *
+                                  ignore       ... Ignore the certificate
+                                  checks altogether (overrules all other
+                                  options)                           * name 
+                                         ... Use the alternate <name>
+                                  instead of the certificate subject to
+                                  match locally stored certificates * tofu  
+                                        ... Accept certificate
+                                  unconditionally on first connect and deny
+                                  on subsequent connections if the
+                                  certificate does not match * fingerprints
+                                  ... A list of certificate hashes that are
+                                  accepted unconditionally for a connection
+/client-build-number:<number>     Client Build Number sent to server
+                                  (influences smartcard behaviour, see
+                                  [MS-RDPESC])
+/client-hostname:<name>           Client Hostname to send to server
+-clipboard[:[use-selection:<atom>]]
+                                  Disable Redirect clipboard.                       
+                                  * use-selection:<atom>  ... (X11) Specify
+                                  which X selection to access. Default is
+                                  CLIPBOARD. PRIMARY is the X-style
+                                  middle-click selection.
+-compression                      Disable compression
+/compression-level:<level>        Compression level (0,1,2)
++credentials-delegation           Enable credentials delegation
+/d:<domain>                       Domain
+-decorations                      Disable Window decorations
+/disp                             Display control
+/drive:<name>,<path>              Redirect directory <path> as named share
+                                  <name>. Hotplug support is enabled with
+                                  /drive:hotplug,*. This argument provides
+                                  the same function as "Drives that I plug
+                                  in later" option in MSTSC.
++drives                           Enable Redirect all mount points as shares
+/dump:<record|replay>,<file>      record or replay dump
+/dvc:<channel>[,<options>]        Dynamic virtual channel
+/dynamic-resolution               Send resolution updates when the window is
+                                  resized
+/echo                             Echo channel
+-encryption                       Disable Encryption (experimental)
+/encryption-methods:[40,][56,][128,][FIPS]
+                                  RDP standard security encryption methods
+/f                                Fullscreen mode (<Ctrl>+<Alt>+<Enter>
+                                  toggles fullscreen)
+-fast-path                        Disable fast-path input/output
++fipsmode                         Enable FIPS mode
+/floatbar[:sticky:[on|off],default:[visible|hidden],show:
+            always|fullscreen|window]]
+                                  floatbar is disabled by default (when
+                                  enabled defaults to sticky in fullscreen
+                                  mode)
+-fonts                            Disable smooth fonts (ClearType)
+/frame-ack:<number>               Number of frame acknowledgement
+/from-stdin[:force]               Read credentials from stdin. With <force>
+                                  the prompt is done before connection,
+                                  otherwise on server request.
+/g:<gateway>[:<port>]             Gateway Hostname
+/gateway-usage-method:[direct|detect]
+                                  Gateway usage method
+/gd:<domain>                      Gateway domain
+/gdi:sw|hw                        GDI rendering
+/geometry                         Geometry tracking channel
++gestures                         Enable Consume multitouch input locally
+/gfx[:RFX,mask:<value>,small-cache[:on|off],thin-client[:on|off],progressive
+       :on|off]]]                 RDP8 graphics pipeline
+/gp:<password>                    Gateway password
+-grab-keyboard                    Disable Grab keyboard
+-grab-mouse                       Disable Grab mouse
+/gt:[rpc|http[,no-websockets][,extauth-sspi-ntlm]|auto[,no-websockets][
+     extauth-sspi-ntlm]]          Gateway transport type
+/gu:[[<domain>\]<user>|<user>[@<domain>]]
+                                  Gateway username
+/gat:<access token>               Gateway Access Token
+/h:<height>                       Height
+-heartbeat                        Disable Support heartbeat PDUs
+/help                             Print help
++home-drive                       Enable Redirect user home as share
+/ipv6                             Prefer IPv6 AAA record over IPv4 A record
+/kbd:[layout:[0x<id>|<name>],lang:<0x<id>>,fn-key:<value>,type:<value>
+      subtype:<value>,unicode[:on|off],remap:<key1>=<value1>
+      remap:<key2>=<value2>]      Keyboard related options:* layout: set the
+                                  keybouard layout announced to the server*
+                                  lang: set the keyboard language identifier
+                                  sent to the server* fn-key: Function key
+                                  value
+/kerberos:[kdc-url:<url>,lifetime:<time>,start-time:<time>
+           renewable-lifetime:<time>,cache:<path>,armor:<path>
+           pkinit-anchors:<path>,pkcs11-module:<name>]
+                                  Kerberos options
+/load-balance-info:<info-string>  Load balance info
+/list                             
+/log-filters:<tag>:<level>[,<tag>:<level>[,...]]
+                                  Set logger filters, see wLog(7) for
+                                  details
+/log-level:[OFF|FATAL|ERROR|WARN|INFO|DEBUG|TRACE]
+                                  Set the default log level, see wLog(7) for
+                                  details
+/max-fast-path-size:<size>        Specify maximum fast-path update size
+/max-loop-time:<time>             Specify maximum time in milliseconds spend
+                                  treating packets
++menu-anims                       Enable menu animations
+/microphone[:[sys:<sys>,][dev:<dev>,][format:<format>,][rate:<rate>,]
+              channel:<channel>]] Audio input (microphone)
+/monitors:<id>[,<id>[,...]]       Select monitors to use
+-mouse-motion                     Disable Send mouse motion
+-mouse-relative                   Disable Send mouse motion with relative
+                                  addressing
+/multimon[:force]                 Use multiple monitors
++multitouch                       Enable Redirect multitouch input
++multitransport                   Enable Support multitransport protocol
+-nego                             Disable protocol security negotiation
+/network:[modem|broadband|broadband-low|broadband-high|wan|lan|auto]
+                                  Network connection type
+/nsc                              NSCodec support
+/orientation:[0|90|180|270]       Orientation of display in degrees
++old-license                      Enable Use the old license workflow (no CAL and
+                                  hwId set to 0)
+/p:<password>                     Password
+/parallel[:<name>[,<path>]]       Redirect parallel device
+/parent-window:<window-id>        Parent window id
+/pcb:<blob>                       Preconnection Blob
+/pcid:<id>                        Preconnection Id
+/pheight:<height>                 Physical height of display (in
+                                  millimeters)
+/play-rfx:<pcap-file>             Replay rfx pcap file
+/port:<number>                    Server port
+-suppress-output                  Disable suppress output when minimized
++print-reconnect-cookie           Enable Print base64 reconnect cookie after
+                                  connecting
+/printer[:<name>[,<driver>]]      Redirect printer device
+/proxy:[<proto>://][<user>:<password>@]<host>[:<port>]
+                                  Proxy settings: override env. var (see
+                                  also environment variable below). Protocol
+                                  "socks5" should be given explicitly where
+                                  "http" is default.
+/pth:<password-hash>              Pass the hash (restricted admin mode)
+/pwidth:<width>                   Physical width of display (in millimeters)
+/rdp2tcp:<executable path[:arg...]>
+                                  TCP redirection
+/reconnect-cookie:<base64-cookie> Pass base64 reconnect cookie to the
+                                  connection
+/redirect-prefer:<FQDN|IP|NETBIOS>,[...]
+                                  Override the preferred redirection order
+/relax-order-checks               Do not check if a RDP order was announced
+                                  during capability exchange, only use when
+                                  connecting to a buggy server
+/restricted-admin                 Restricted admin mode
+/rfx                              RemoteFX
+/rfx-mode:[image|video]           RemoteFX mode
+/scale:[100|140|180]              Scaling factor of the display
+/scale-desktop:<percentage>       Scaling factor for desktop applications
+                                  (value between 100 and 500)
+/scale-device:100|140|180         Scaling factor for app store applications
+/sec:[rdp|tls|nla|ext]            Force specific protocol security
+/serial[:<name>[,<path>[,<driver>[,permissive]]]]
+                                  Redirect serial device
+/server-name:<name>               User-specified server name to use for
+                                  validation (TLS, Kerberos)
+/shell:<shell>                    Alternate shell
+/shell-dir:<dir>                  Shell working directory
+/size:<width>x<height> or <percent>%[wh]
+                                  Screen size
+/smart-sizing[:<width>x<height>]  Scale remote desktop to window size
+/smartcard[:<str>[,<str>...]]     Redirect the smartcard devices containing
+                                  any of the <str> in their names.
+/smartcard-logon[:[cert:<path>,key:<key>,pin:<pin>,csp:<csp name>
+                   reader:<reader>,card:<card>]]
+                                  Activates Smartcard (optional certificate)
+                                  Logon authentication.
+/sound[:[sys:<sys>,][dev:<dev>,][format:<format>,][rate:<rate>,]
+         channel:<channel>,][latency:<latency>,][quality:<quality>]]
+                                  Audio output (sound)
+/span                             Span screen over multiple monitors
+/spn-class:<service-class>        SPN authentication service class
+/ssh-agent                        SSH Agent forwarding channel
+/sspi-module:<SSPI module path>   SSPI shared library module file path
+/disable-output                   Deactivate all graphics decoding in the
+                                  client session. Useful for load tests with
+                                  many simultaneous connections
+/t:<title>                        Window title
+-themes                           Disable themes
+/timeout:<time in ms>             Advanced setting for high latency links:
+                                  Adjust connection timeout, use if you
+                                  encounter timeout failures with your
+                                  connection
+/tls:[ciphers|seclevel|secrets-file|enforce]
+                                  TLS configuration options: *
+                                  ciphers:[netmon|ma|<cipher names>] *
+                                  seclevel:<level>, default: 1, range: [0-5]
+                                  Override the default TLS security level,
+                                  might be required for older target servers
+                                  * secrets-file:<filename> *
+                                  enforce[:[ssl3|1.0|1.1|1.2|1.3]] Force use
+                                  of SSL/TLS version for a connection. Some
+                                  servers have a buggy TLS version
+                                  negotiation and might fail without this.
+                                  Defaults to TLS 1.2 if no argument is
+                                  supplied. Use 1.0 for windows 7
+-toggle-fullscreen                Disable Alt+Ctrl+Enter to toggle
+                                  fullscreen
+/tune:<setting:value>,<setting:value>
+                                  [experimental] directly manipulate freerdp
+                                  settings, use with extreme caution!
+/u:[[<domain>\]<user>|<user>[@<domain>]]
+                                  Username
++unmap-buttons                    Enable Let server see real physical pointer
+                                  button
+/v:<server>[:port]                Server hostname
+/vc:<channel>[,<options>]         Static virtual channel
+/version                          Print version
+/video                            Video optimized remoting channel
+/vmconnect[:<vmid>]               Hyper-V console (use port 2179, disable
+                                  negotiation)
+/w:<width>                        Width
+-wallpaper                        Disable wallpaper
++window-drag                      Enable full window drag
+/window-position:<xpos>x<ypos>    window position
+/wm-class:<class-name>            Set the WM_CLASS hint for the window
+                                  instance
+/workarea                         Use available work area
